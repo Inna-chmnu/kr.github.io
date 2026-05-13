@@ -5,17 +5,17 @@ clock = pygame.time.Clock()
 window = pygame.display.set_mode((1200,800))
 pygame.display.set_caption("PINKY BIRD")
 
-imgStovp = pygame.image.load("img/stovp.png")
+imgStovp = pygame.image.load("stovp.png")
 imgStovp = pygame.transform.scale(imgStovp, (150, 400))
 imgStovpDown = pygame.transform.flip(imgStovp, False, True)
 
-imgBird = pygame.image.load("img/bird.png")
+imgBird = pygame.image.load("bird.png")
 imgBird = pygame.transform.scale(imgBird, (100,80))
 
-imgBird2 = pygame.image.load("img/bird2.png")
+imgBird2 = pygame.image.load("bird2.png")
 imgBird2 = pygame.transform.scale(imgBird2, (100,80))
 
-imgBg = pygame.image.load("img/fon.jpg")
+imgBg = pygame.image.load("fon.jpg")
 imgBg = pygame.transform.scale(imgBg, (1200, 800))
 
 font = pygame.font.SysFont("Arial", 48, bold=True)
@@ -38,10 +38,10 @@ game_over = False
 btnRect = pygame.Rect(1200//2 - 120, 420, 240, 60)
 btnRestart = pygame.Rect(1200//2 - 120, 470, 240, 60)
 
-pygame.mixer.music.load("music/menu.mp3")
+pygame.mixer.music.load("menu.mp3")
 pygame.mixer.music.set_volume(0.5)
 pygame.mixer.music.play(-1)
-jumpSound = pygame.mixer.Sound("music/jump.mp3")
+jumpSound = pygame.mixer.Sound("jump.mp3")
 jumpSound.set_volume(0.5)
 
 class PinkyBird(pygame.sprite.Sprite):
@@ -67,7 +67,7 @@ while run:
             if event.key == pygame.K_SPACE:
                 if not game_started and not game_over:
                     game_started = True
-                    pygame.mixer.music.load("music/m.mp3")
+                    pygame.mixer.music.load("m.mp3")
                     pygame.mixer.music.play(-1)
                 elif game_started and not game_over:
                     speed = -jump
@@ -79,14 +79,14 @@ while run:
                     stovp.empty()
                     game_over = False
                     game_started = False
-                    pygame.mixer.music.load("music/menu.mp3")
+                    pygame.mixer.music.load("menu.mp3")
                     pygame.mixer.music.play(-1)
 
         if event.type == pygame.MOUSEBUTTONDOWN:
             if not game_started and not game_over:
                 if btnRect.collidepoint(event.pos):
                     game_started = True
-                    pygame.mixer.music.load("music/m.mp3")
+                    pygame.mixer.music.load("m.mp3")
                     pygame.mixer.music.play(-1)
             elif game_started and not game_over:
                     speed = -jump
@@ -99,7 +99,7 @@ while run:
                     stovp.empty()
                     game_over = False
                     game_started = False
-                    pygame.mixer.music.load("music/menu.mp3")
+                    pygame.mixer.music.load("menu.mp3")
                     pygame.mixer.music.play(-1)
 
         if event.type == pinkStovp and game_started and not game_over:
@@ -115,11 +115,11 @@ while run:
         for s in stovp:
             if birdR.colliderect(s.rect):
                  game_over = True
-                 pygame.mixer.music.load("music/gameover.mp3")
+                 pygame.mixer.music.load("gameover.mp3")
                  pygame.mixer.music.play()
         if birdR.top > 800:
             game_over = True
-            pygame.mixer.music.load("music/gameover.mp3")
+            pygame.mixer.music.load("gameover.mp3")
             pygame.mixer.music.play()
     if game_started and not game_over:
         for s in stovp:
